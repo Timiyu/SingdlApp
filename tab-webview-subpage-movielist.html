@@ -191,7 +191,6 @@
 			var news = new Vue({
 				el: '#news',
 				data: {
-					banner: [], //顶部banner数据
 					items: [] //列表信息流数据
 				}
 			});
@@ -208,6 +207,7 @@
 					title: item.title,
 					author: item.author,
 					time: item.time,
+					movie: item.movie,
 					cover: item.cover
 				});
 
@@ -234,6 +234,7 @@
 						guid: item.movie_id,
 						title: item.title,
 						author: item.author,
+						movie: "https://ke.singdl.com/media/" + item.movie,
 						cover: "https://ke.singdl.com/media/" + item.movie_coverimg,
 						time: dateUtils.format(item.pushdate)
 					});

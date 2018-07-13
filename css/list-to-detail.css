@@ -1,14 +1,14 @@
 .mui-bar-nav {
-	background-color: rgba(0,0,0,.15);
+	background-color: white;
 	-webkit-box-shadow: none;
 	box-shadow: none;
 }
 .mui-bar-nav a,
 .mui-bar .mui-btn-link {
-	color: white;
+	color: black;
 }
 .kr-title {
-	color: white;
+	color: whitesmoke;
 }
 
 .kr-article .kr-slider a {
@@ -94,7 +94,7 @@
 	font-size: 16px;
 	font-weight: 400;
 	line-height: 21px;
-	color: white;
+	color: darkgray;
 	z-index: 11;
 }
 .kr-article-content {
@@ -124,7 +124,7 @@
 }
 .kr-article-article {
 	font-size: 15px;
-	padding: 0 15px;
+	padding: 0 15px 15px;
 	color: #000;
 }
 .kr-article-article ol {
