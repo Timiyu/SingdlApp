@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/SingdlApp.iml" filepath="$PROJECT_DIR$/.idea/SingdlApp.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../Singdlapi/.idea/Singdlapi.iml" filepath="$PROJECT_DIR$/../Singdlapi/.idea/Singdlapi.iml" />
     </modules>
   </component>
 </project>
