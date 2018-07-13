@@ -32,19 +32,19 @@
 		<nav class="mui-bar mui-bar-tab">
 			<a id="defaultTab" class="mui-tab-item mui-active" href="tab-webview-subpage-articlelist.html">
 				<span class="mui-icon mui-icon-home"></span>
-				<span class="mui-tab-label">Singdl|首页</span>
+				<span class="mui-tab-label">首页</span>
 			</a>
 			<a class="mui-tab-item" href="tab-webview-subpage-movielist.html">
 				<span class="mui-icon mui-icon-videocam"></span>
-				<span class="mui-tab-label">Singdl|视频</span>
+				<span class="mui-tab-label">视频</span>
 			</a>
 			<a class="mui-tab-item" href="tab-webview-subpage-goodlist.html">
 				<span class="mui-icon mui-icon-star"></span>
-				<span class="mui-tab-label">Singdl|干货</span>
+				<span class="mui-tab-label">干货</span>
 			</a>
 			<a class="mui-tab-item" href="tab-webview-subpage-feedback.html">
 				<span class="mui-icon mui-icon-person"></span>
-				<span class="mui-tab-label">Singdl|反馈</span>
+				<span class="mui-tab-label">反馈</span>
 			</a>
 		</nav>
 		<script src="js/mui.min.js"></script>
@@ -84,7 +84,7 @@
 					return;
 				}
 				//更换标题
-				title.innerHTML = this.querySelector('.mui-tab-label').innerHTML;
+				title.innerHTML = "Singdl|"+this.querySelector('.mui-tab-label').innerHTML;
 				//显示目标选项卡
 				//若为iOS平台或非首次显示，则直接显示
 				if(mui.os.ios||aniShow[targetTab]){

@@ -1,7 +1,7 @@
 {
 	"@platforms": ["android", "iPhone", "iPad"],
 	"id": "H56235DD5",/*应用的标识，创建应用时自动生成，勿手动修改*/
-	"name": "Singdl",/*应用名称，程序桌面图标名称*/
+	"name": "singdl",/*应用名称，程序桌面图标名称*/
 	"version": {
 		"name": "1.0.0",/*应用版本名称*/
 		"code": "83"
@@ -40,7 +40,7 @@
 	"plus": {
 		"splashscreen": {
 			"autoclose": true,/*是否自动关闭程序启动界面，true表示应用加载应用入口页面后自动关闭；false则需调plus.navigator.closeSplashscreen()关闭*/
-			"waiting": true
+			"waiting": true,"delay":"5000"
 		},
 		"runmode": "liberate",/*应用的首次启动运行模式，可取liberate或normal，liberate模式在第一次启动时将解压应用资源（Android平台File API才可正常访问_www目录）*/
 		"signature": "Sk9JTiBVUyBtYWlsdG86aHIyMDEzQGRjbG91ZC5pbw==",/*可选，保留给应用签名，暂不使用*/
@@ -60,7 +60,7 @@
 				"aliasname": "",/*Android应用打包使用密钥库中证书的别名*/
 				"permissions": ["<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>","<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\"/>","<uses-permission android:name=\"android.permission.READ_CONTACTS\"/>","<uses-permission android:name=\"android.permission.VIBRATE\"/>","<uses-permission android:name=\"android.permission.READ_LOGS\"/>","<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>","<uses-feature android:name=\"android.hardware.camera.autofocus\"/>","<uses-permission android:name=\"android.permission.WRITE_CONTACTS\"/>","<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>","<uses-permission android:name=\"com.android.launcher.permission.UNINSTALL_SHORTCUT\"/>","<uses-permission android:name=\"android.permission.CAMERA\"/>","<uses-permission android:name=\"android.permission.GET_ACCOUNTS\"/>","<uses-permission android:name=\"android.permission.RECORD_AUDIO\"/>","<uses-permission android:name=\"android.permission.MODIFY_AUDIO_SETTINGS\"/>","<uses-permission android:name=\"com.android.launcher.permission.INSTALL_SHORTCUT\"/>","<uses-permission android:name=\"android.permission.SEND_SMS\"/>","<uses-permission android:name=\"android.permission.INTERNET\"/>","<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>","<uses-permission android:name=\"android.permission.CHANGE_WIFI_STATE\"/>","<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>","<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>","<uses-permission android:name=\"android.permission.CALL_PHONE\"/>","<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\"/>","<uses-feature android:name=\"android.hardware.camera\"/>","<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\"/>","<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\"/>","<uses-permission android:name=\"android.permission.USE_FINGERPRINT\"/>","<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>","<uses-permission android:name=\"android.permission.WRITE_SMS\"/>","<uses-permission android:name=\"android.permission.READ_SMS\"/>"]
 			},
-			"orientation": ["portrait-primary", "portrait-secondary"],/*应用支持的方向，portrait-primary：竖屏正方向；portrait-secondary：竖屏反方向；landscape-primary：横屏正方向；landscape-secondary：横屏反方向*/
+			"orientation": ["portrait-primary","portrait-secondary","landscape-primary","landscape-secondary"],/*应用支持的方向，portrait-primary：竖屏正方向；portrait-secondary：竖屏反方向；landscape-primary：横屏正方向；landscape-secondary：横屏反方向*/
 			"icons": {
 				"ios": {
 					"prerendered": true, /*应用图标是否已经高亮处理，在iOS6及以下设备上有效*/
@@ -123,5 +123,106 @@
 				}
 			}
 		},"adid":"122317290806"
+	},
+	"dependencies":{
+		"pages": {
+			"tab-webview-subpage-movielist.html": {
+				"href": "tab-webview-subpage-movielist.html",
+				"resources": [
+					"css/mui.min.css",
+					"fonts/mui.ttf",
+					"js/mui.js",
+					"js/vue.min.js"
+				],
+				"priority": 0
+			},
+			"tab-webview-subpage-goodlist.html": {
+				"href": "tab-webview-subpage-goodlist.html",
+				"resources": [
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"fonts/mui.ttf"
+				],
+				"priority": 1
+			},
+			"tab-webview-subpage-articlelist.html": {
+				"href": "tab-webview-subpage-articlelist.html",
+				"resources": [
+					"css/mui.min.css",
+					"fonts/mui.ttf",
+					"js/mui.js",
+					"js/vue.min.js"
+				],
+				"priority": 2
+			},
+			"index.html": {
+				"href": "index.html",
+				"resources": [
+					"css/mui.min.css",
+					"fonts/mui.ttf",
+					"js/mui.min.js"
+				],
+				"refer": [
+					"tab-webview-subpage-movielist.html",
+					"tab-webview-subpage-goodlist.html",
+					"tab-webview-subpage-articlelist.html"
+				],
+				"priority": 0
+			}
+		},
+		"idle": {
+			"resources": [
+				"js/mui.imageViewer.js",
+				"images/cbd.jpg",
+				"css/feedback.css",
+				"images/muwu.jpg",
+				"js/mui.picker.min.js",
+				"images/shuijiao.jpg",
+				"libs/echarts-all.js",
+				"css/icons-extra.css",
+				"js/mui.dtpicker.js",
+				"js/mui.lazyload.img.js",
+				"fonts/mui-icons-extra.ttf",
+				"js/mui.zoom.js",
+				"images/logo.png",
+				"js/mui.listpicker.js",
+				"js/mui.poppicker.js",
+				"js/webviewGroup.js",
+				"images/60x60.gif",
+				"js/mui.previewimage.js",
+				"css/mui.poppicker.css",
+				"js/city.data.js",
+				"css/mui.imageviewer.css",
+				"css/mui.picker.min.css",
+				"images/login-1.png",
+				"js/mui.indexedlist.js",
+				"js/mui.view.js",
+				"js/beecloud.js",
+				"js/mui.pullToRefresh.js",
+				"moviedetail.html",
+				"js/mui.picker.js",
+				"tab-webview-subpage-feedbak.html",
+				"js/mui.pullToRefresh.material.js",
+				"css/mui.listpicker.css",
+				"css/list-to-detail.css",
+				"js/mui.lazyload.js",
+				"css/mui.picker.css",
+				"css/mui.indexedlist.css",
+				"css/mui.css",
+				"js/mui.picker.all.js",
+				"js/city.data-3.js",
+				"js/95516.js",
+				"images/qrcode.png",
+				"images/yuantiao.jpg",
+				"css/app.css",
+				"css/mui.dtpicker.css",
+				"css/mui.picker.all.css",
+				"js/update.js",
+				"js/mui.locker.js",
+				"js/feedback.js",
+				"articledetil.html",
+				"js/arttmpl.js"
+			]
+		}
 	}
 }

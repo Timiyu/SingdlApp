@@ -12,7 +12,7 @@
 	<body>
 		<header class="mui-bar mui-bar-nav">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title">Singdl</h1>
+			<h1 class="mui-title">Singdl|{{title}}</h1>
 		</header>
 
 		<div class="mui-content">
@@ -86,10 +86,12 @@
 				vm.author = event.detail.author;
 				vm.time = event.detail.time;
 				//向服务端请求文章详情内容
-				mui.ajax('http://spider.dcloud.net.cn/api/news/36kr/' + guid, {
-					type: 'GET',
+				mui.ajax('http://127.0.0.1:8000/api/article_detail/', {
+				    data:{post_id:2}, //请求参数
+					type: 'get', //请求类型GET
 					dataType: 'json', //服务器返回json格式数据
 					timeout: 15000, //15秒超时
+					headers:{'Content-Type':'application/json'},
 					success: function(rsp) {
 						vm.content = rsp.content;
 					},

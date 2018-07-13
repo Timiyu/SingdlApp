@@ -177,8 +177,8 @@
 			mui.plusReady(function() {
 				//预加载详情页
 				webview_detail = mui.preload({
-					url: 'detail.html',
-					id: 'news_detail',
+					url: 'articledetail.html',
+					id: 'article_detail',
 					styles: {
 						"render": "always",
 						"popGesture": "hide",
@@ -197,9 +197,9 @@
 			});
 
 			/**
-			 * 打开新闻详情
+			 * 打开文章详情
 			 *
-			 * @param {Object} item 当前点击的新闻对象
+			 * @param {Object} item 当前点击的文章对象
 			 */
 			function open_detail(item) {
 				//触发子窗口变更新闻详情
