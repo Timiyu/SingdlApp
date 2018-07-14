@@ -134,7 +134,10 @@
 					"js/mui.js",
 					"js/vue.min.js"
 				],
-				"priority": 0
+				"priority": 0,
+				"refer": [
+					"moviedetail.html"
+				]
 			},
 			"tab-webview-subpage-goodlist.html": {
 				"href": "tab-webview-subpage-goodlist.html",
@@ -153,19 +156,23 @@
 					"js/mui.js",
 					"js/vue.min.js"
 				],
-				"priority": 2
+				"priority": 2,
+				"refer": [
+					"articledetail.html"
+				]
 			},
 			"index.html": {
 				"href": "index.html",
 				"resources": [
 					"css/mui.min.css",
 					"fonts/mui.ttf",
-					"js/mui.min.js"
+					"js/mui.min.js",
+					"tab-webview-subpage-articlelist.html"
 				],
 				"refer": [
 					"tab-webview-subpage-movielist.html",
 					"tab-webview-subpage-goodlist.html",
-					"tab-webview-subpage-articlelist.html"
+					"tab-webview-subpage-feedback.html"
 				],
 				"priority": 0
 			}
@@ -199,7 +206,6 @@
 				"js/mui.view.js",
 				"js/beecloud.js",
 				"js/mui.pullToRefresh.js",
-				"moviedetail.html",
 				"js/mui.picker.js",
 				"tab-webview-subpage-feedbak.html",
 				"js/mui.pullToRefresh.material.js",
@@ -224,5 +230,5 @@
 				"js/arttmpl.js"
 			]
 		}
-	}
+	},"fullscreen":false
 }

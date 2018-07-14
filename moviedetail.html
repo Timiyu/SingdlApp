@@ -7,25 +7,53 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="css/mui.min.css" rel="stylesheet" />
 		<link rel="stylesheet" type="text/css" href="css/list-to-detail.css" />
+
 	</head>
 
 	<body>
-		
+		<style type="text/css">
+			.vid-wrap {
+				width: 100%;
+				background: #000;
+				position: relative;
+				padding: 45px 0px;
+				padding-bottom: 56.25%;
+				/*需要用padding来维持16:9比例,也就是9除以16*/
+				height: 0;
+			}
+			
+			.vid-wrap video {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%
+			}
+			
+			video::-internal-media-controls-download-button {
+				display: none;
+			}
+			
+			video::-webkit-media-controls-enclosure {
+				overflow: hidden;
+			}
+			
+			video::-webkit-media-controls-panel {
+				width: calc(100% + 30px);
+			}
+		</style>
+
 		<header class="mui-bar mui-bar-nav">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 			<h1 class="mui-title">Singdl</h1>
 		</header>
 
-
 		<div class="mui-content">
-			<!--顶部banner图 开始-->
-			<div id="kr-article-banner" class="kr-article-banner">
-				<div id="kr-article-cover" class="kr-article-cover">
-					<img :src="cover">
-				</div>
-				<h2 id="kr-article-title" class="kr-article-title">{{title}}</h2>
+			<!--顶部视频 开始-->
+			<div class="vid-wrap">
+				<video id="vs" preload="metadata" controls="true" playsinline="true" :poster="cover" :src="movie">
+				</video>
 			</div>
-			<!--顶部banner图 结束-->
 
 			<div class="kr-article-content">
 				<!-- 视频作者、发布时间等信息 -->
@@ -34,8 +62,8 @@
 					<div class="kr-article-text">发表于</div>
 					<div id="kr-article-time" class="kr-article-time">{{time}}</div>
 				</div>
-				
 			</div>
+
 		</div>
 
 		<nav class="mui-bar mui-bar-tab">
@@ -51,6 +79,7 @@
 
 		<script src="js/mui.min.js"></script>
 		<script src="js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="https://vjs.zencdn.net/7.0.5/video.js"></script>
 		<script type="text/javascript">
 			mui.init();
 
@@ -74,7 +103,7 @@
 				}
 			});
 
-			//监听自定义事件，获取新闻详情
+			//监听自定义事件，获取视频详情
 			document.addEventListener('get_detail', function(event) {
 				var guid = event.detail.guid;
 				if(!guid) {
@@ -86,13 +115,8 @@
 				vm.title = event.detail.title;
 				vm.author = event.detail.author;
 				vm.time = event.detail.time;
-				vm.movie  = event.detail.movie;
+				vm.movie = event.detail.movie;
 			});
-
-			//重写返回逻辑
-			mui.back = function() {
-				plus.webview.currentWebview().hide("auto", 300);
-			}
 
 			//窗口隐藏时，重置页面数据
 			mui.plusReady(function() {
@@ -101,8 +125,14 @@
 					window.scrollTo(0, 0);
 					vm.resetData();
 				}, false);
+				//重写返回逻辑
+				mui.back = function() {
+					plus.webview.currentWebview().hide("auto", 300);
+				}
 			})
+			mui.alert("您将要观看视频，请确认移动网络流量充足或在WIFI网络观看！", "温馨提醒")
 		</script>
+
 	</body>
 
 </html>
