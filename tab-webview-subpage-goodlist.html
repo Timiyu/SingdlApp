@@ -22,18 +22,15 @@
 					<ul class="mui-table-view">
 						<li class="mui-table-view-cell mui-media" v-for="item in items">
 							<div class="mui-card">
-								<div class="mui-card-header mui-card-media">
-									<img src="images/logo.png" />
-									<div class="mui-media-body">
-										{{item.author}}
-										<p>发表于 {{item.time}}</p>
+								<img class="mui-card-header mui-card-media" :src="item.cover" style="height:100%;width: 100%;" />
+								<div class="mui-card-content">
+									<div class="mui-card-content-inner">
+										<p>{{item.author}} 发表于 {{item.time}}</p>
+										<p style="color: #333;">{{item.title}}</p>
 									</div>
 								</div>
-								<div class="mui-card-content">
-									<img :src="item.audio_coverimg" alt="" width="100%" />
-								</div>
 								<div class="mui-card-footer">
-									<audio :src="item.audio" controls="controls"></audio>
+									<audio :src="item.audio" controls="controls" preload="metadata"></audio>
 								</div>
 							</div>
 						</li>
@@ -44,7 +41,7 @@
 
 		</div>
 		<script src="js/mui.min.js"></script>
-				<script src="js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/vue.min.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			var lastId = '',
 				minId = ''; //最新新闻的id
@@ -144,6 +141,7 @@
 						guid: item.audio_id,
 						title: item.title,
 						author: item.author,
+						audio: item.audio,
 						cover: "https://ke.singdl.com/media/" + item.audio_coverimg,
 						time: dateUtils.format(item.pushdate)
 					});
