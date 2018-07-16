@@ -81,7 +81,9 @@
 		<script src="js/vue.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="https://vjs.zencdn.net/7.0.5/video.js"></script>
 		<script type="text/javascript">
-			mui.init();
+			mui.init(
+				mui.alert("您将要观看视频，请确认移动网络流量充足或在WIFI网络观看！", "温馨提醒")
+			);
 
 			function getDefaultData() {
 				return {
@@ -130,7 +132,7 @@
 					plus.webview.currentWebview().hide("auto", 300);
 				}
 			})
-			mui.alert("您将要观看视频，请确认移动网络流量充足或在WIFI网络观看！", "温馨提醒")
+			
 		</script>
 
 	</body>

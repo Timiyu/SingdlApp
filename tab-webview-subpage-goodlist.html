@@ -3,7 +3,7 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>Hello MUI</title>
+		<title>Singdl</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -15,6 +15,7 @@
 	</head>
 
 	<body>
+
 		<div class="mui-content" id="news">
 			<!--列表信息流 开始-->
 			<div id="list" class="mui-scroll-wrapper">
@@ -30,7 +31,8 @@
 									</div>
 								</div>
 								<div class="mui-card-footer">
-									<audio :src="item.audio" controls="controls" preload="metadata"></audio>
+									<audio :src="item.audio" controlsList="nodownload" controls="controls" preload="auto" style="width: 100%;">
+									</audio>
 								</div>
 							</div>
 						</li>
@@ -141,7 +143,7 @@
 						guid: item.audio_id,
 						title: item.title,
 						author: item.author,
-						audio: item.audio,
+						audio: "https://ke.singdl.com/media/" + item.audio,
 						cover: "https://ke.singdl.com/media/" + item.audio_coverimg,
 						time: dateUtils.format(item.pushdate)
 					});
