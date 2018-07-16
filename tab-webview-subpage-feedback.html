@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en" class="feedback">
+
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
@@ -9,9 +10,7 @@
 	</head>
 
 	<body>
-		<header class="mui-bar mui-bar-nav">
-			<button id="submit" class="mui-btn mui-btn-blue mui-btn-link mui-pull-right">发送</button>
-		</header>
+
 		<div class="mui-content">
 			<div class="mui-content-padded">
 				<div class="mui-inline">问题和意见</div>
@@ -29,10 +28,18 @@
 								<li class="mui-table-view-cell stream">
 									<a href="#">桌面快捷方式创建失败</a>
 								</li>
-								<li class="mui-table-view-cell"><a href="#">界面显示错乱</a></li>
-								<li class="mui-table-view-cell"><a href="#">启动缓慢，卡出翔了</a></li>
-								<li class="mui-table-view-cell"><a href="#">偶发性崩溃</a></li>
-								<li class="mui-table-view-cell"><a href="#">UI无法直视，丑哭了</a></li>
+								<li class="mui-table-view-cell">
+									<a href="#">界面显示错乱</a>
+								</li>
+								<li class="mui-table-view-cell">
+									<a href="#">启动缓慢，卡出翔了</a>
+								</li>
+								<li class="mui-table-view-cell">
+									<a href="#">偶发性崩溃</a>
+								</li>
+								<li class="mui-table-view-cell">
+									<a href="#">UI无法直视，丑哭了</a>
+								</li>
 							</ul>
 						</div>
 					</div>
@@ -46,6 +53,10 @@
 			<div class="mui-input-row">
 				<input id='contact' type="text" class="mui-input-clear contact" placeholder="(反馈问题必填,方便我们联系您 )" />
 			</div>
+			<p>姓名</p>
+			<div class="mui-input-row">
+				<input id='name' type="text" class="mui-input-clear contact" placeholder="(反馈问题必填,方便我们联系您 )" />
+			</div>
 			<div class="mui-content-padded">
 				<div class="mui-inline">应用评分</div>
 				<div class="icons mui-inline" style="margin-left: 6px;">
@@ -55,6 +66,8 @@
 					<i data-index="4" class="mui-icon mui-icon-star"></i>
 					<i data-index="5" class="mui-icon mui-icon-star"></i>
 				</div>
+				<div style="height: 60px;"></div>
+				<button id="submit" type="button" class="mui-btn mui-btn-blue mui-pull-right">发送反馈</button>
 			</div><br />
 		</div>
 		<script src="js/mui.min.js"></script>

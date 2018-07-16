@@ -15,7 +15,19 @@
 	</head>
 
 	<body>
-
+		<style type="text/css">
+			audio::-internal-media-controls-download-button {
+				display: none;
+			}
+			
+			audio::-webkit-media-controls-enclosure {
+				overflow: hidden;
+			}
+			
+			audio::-webkit-media-controls-panel {
+				width: calc(100% + 30px);
+			}
+		</style>
 		<div class="mui-content" id="news">
 			<!--列表信息流 开始-->
 			<div id="list" class="mui-scroll-wrapper">
@@ -31,7 +43,7 @@
 									</div>
 								</div>
 								<div class="mui-card-footer">
-									<audio :src="item.audio" controlsList="nodownload" controls="controls" preload="auto" style="width: 100%;">
+									<audio :src="item.audio" controls="controls" preload="auto" style="width: 100%;">
 									</audio>
 								</div>
 							</div>
