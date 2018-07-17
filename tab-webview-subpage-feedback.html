@@ -27,16 +27,19 @@
 		</div>
 		<p>姓名</p>
 		<div class="mui-input-row">
-			<input id='name' type="text" class="mui-input-clear contact" placeholder="(反馈问题必填,方便我们联系您 )" />
+			<input id='name' type="text" class="mui-input-clear username" placeholder="(反馈问题必填,方便我们联系您 )" />
 		</div>
 		<div style="height: 40px;"></div>
-		<button id="submit" type="button" class="mui-btn mui-btn-blue mui-pull-right">发送反馈</button>
+		<button id="submit" type="button" class="mui-btn mui-btn-blue mui-pull-right" style="right:30px">发送反馈</button>
 		<div style="height: 10px;"></div>
 		</div>
 		<script src="js/mui.min.js"></script>
+
 		<script type="text/javascript">
 			mui.init();
+
 			mui('.mui-scroll-wrapper').scroll();
+
 
 			// 获取发送按钮
 			var submit = document.getElementById("submit");
@@ -47,7 +50,7 @@
 				var phone = document.getElementById("contact").value;
 				var name = document.getElementById("name").value;
 
-				mui.ajax('http://192.168.43.105:8000/api/feed_back/', {
+				mui.ajax('http://localhost:8000/api/feed_back/', {
 					data: {
 						'feedback':feedback,
 						'phone':phone,
@@ -60,7 +63,13 @@
 						'Content-Type': 'application/json'
 					},
 					success: function(data) {
-						//服务器返回响应，根据响应结果，分析是否登录成功；
+
+					    var result = eval(data);
+					    if(result.flag==true){
+					        mui.toast("发送成功！")
+						}else if(result.flag==false){
+					        mui.toast("发送失败，请稍后再试！")
+						}
 					},
 					error: function(xhr, type, errorThrown) {
 						//异常处理；
