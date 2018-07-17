@@ -57,24 +57,24 @@
 			<div class="mui-input-row">
 				<input id='name' type="text" class="mui-input-clear contact" placeholder="(反馈问题必填,方便我们联系您 )" />
 			</div>
-			<div class="mui-content-padded">
-				<div class="mui-inline">应用评分</div>
-				<div class="icons mui-inline" style="margin-left: 6px;">
-					<i data-index="1" class="mui-icon mui-icon-star"></i>
-					<i data-index="2" class="mui-icon mui-icon-star"></i>
-					<i data-index="3" class="mui-icon mui-icon-star"></i>
-					<i data-index="4" class="mui-icon mui-icon-star"></i>
-					<i data-index="5" class="mui-icon mui-icon-star"></i>
-				</div>
-				<div style="height: 60px;"></div>
-				<button id="submit" type="button" class="mui-btn mui-btn-blue mui-pull-right">发送反馈</button>
-			</div><br />
+			<div style="height: 40px;"></div>
+			<button id="submit" type="button" class="mui-btn mui-btn-blue mui-pull-right">发送反馈</button>
+			<div style="height: 10px;"></div>
 		</div>
 		<script src="js/mui.min.js"></script>
 		<script src=" js/feedback.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			mui.init();
 			mui('.mui-scroll-wrapper').scroll();
+
+			var submit = document.getElementById("submit");
+			//监听点击事件
+			submit.addEventListener("tap", function() {
+				var feedback = document.getElementById("question").value;
+				var phone = document.getElementById("contact").value;
+				var name = document.getElementById("name").value;
+			});
+			mui.ajax("https://ke.singdl.com/api/feed_back/")
 		</script>
 	</body>
 
