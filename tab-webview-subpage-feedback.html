@@ -50,7 +50,7 @@
 				var phone = document.getElementById("contact").value;
 				var name = document.getElementById("name").value;
 
-				mui.ajax('https://ke.singdl.com/api/feed_back/', {
+				mui.ajax('http://192.168.43.105:8000/api/feed_back/', {
 					data: {
 						'feedback':feedback,
 						'phone':phone,
@@ -69,7 +69,7 @@
 						}else if(result.flag==1){
 					        mui.toast("发送失败，问题内容不能为空！")
 						}else if(result.flag==2){
-					        mui.toast("发送失败，姓名不能为空！")
+					        mui.toast("发送失败，输入的姓名无效！")
 						}else if(result.flag==3){
 					        mui.toast("发送失败，手机号无效！")
 						}else{
