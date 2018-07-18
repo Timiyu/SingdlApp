@@ -50,7 +50,7 @@
 				var phone = document.getElementById("contact").value;
 				var name = document.getElementById("name").value;
 
-				mui.ajax('http://localhost:8000/api/feed_back/', {
+				mui.ajax('https://ke.singdl.com/api/feed_back/', {
 					data: {
 						'feedback':feedback,
 						'phone':phone,
@@ -58,21 +58,27 @@
 					},
 					dataType: 'json', //服务器返回json格式数据
 					type: 'post', //HTTP请求类型
-					timeout: 10000, //超时时间设置为10秒；
+					timeout: 15000, //超时时间设置为10秒；
 					headers: {
 						'Content-Type': 'application/json'
 					},
 					success: function(data) {
-
 					    var result = eval(data);
-					    if(result.flag==true){
-					        mui.toast("发送成功！")
-						}else if(result.flag==false){
+					    if(result.flag==0){
 					        mui.toast("发送失败，请稍后再试！")
+						}else if(result.flag==1){
+					        mui.toast("发送失败，问题内容不能为空！")
+						}else if(result.flag==2){
+					        mui.toast("发送失败，姓名不能为空！")
+						}else if(result.flag==3){
+					        mui.toast("发送失败，手机号无效！")
+						}else{
+					        mui.toast("发送成功！")
 						}
-					},
+                    },
 					error: function(xhr, type, errorThrown) {
 						//异常处理；
+						mui.toast("未知错误，请联系我们！")
 						console.log(type);
 					}
 				});
