@@ -71,12 +71,11 @@
 					if(e.type === "input" || e.orignalEvent.propertyName === "value") {
 						console.log(this.value.length)
 						if(this.value.length == 11) {
-							var myreg = /^1\d{10}$/;
-							if(!myreg.test(this.value)) {
+							var phonereg = /^1\d{10}$/;
+							if(!phonereg.test(this.value)) {
 								mui.toast("请输入正确的手机号码");
 								return;
 							}
-
 							$('#sendcode').removeClass('not-active').addClass('code-highlight');
 							$("#sendcode").attr('disabled',false);
 						} else {
