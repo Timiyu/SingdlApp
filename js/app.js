@@ -45,15 +45,16 @@
 		regInfo = regInfo || {};
 		regInfo.account = regInfo.account || '';
 		regInfo.password = regInfo.password || '';
+		regInfo.phone = regInfo.phone||'';
 		if (regInfo.account.length < 5) {
 			return callback('用户名最短需要 5 个字符');
 		}
 		if (regInfo.password.length < 6) {
 			return callback('密码最短需要 6 个字符');
 		}
-		if (!checkEmail(regInfo.email)) {
-			return callback('邮箱地址不合法');
-		}
+//		if (!checkEmail(regInfo.email)) {
+//			return callback('邮箱地址不合法');
+//		}
 		var users = JSON.parse(localStorage.getItem('$users') || '[]');
 		users.push(regInfo);
 		localStorage.setItem('$users', JSON.stringify(users));
@@ -79,20 +80,20 @@
 		//owner.setSettings(settings);
 	};
 
-	var checkEmail = function(email) {
-		email = email || '';
-		return (email.length > 3 && email.indexOf('@') > -1);
-	};
+//	var checkEmail = function(email) {
+//		email = email || '';
+//		return (email.length > 3 && email.indexOf('@') > -1);
+//	};
 
 	/**
 	 * 找回密码
 	 **/
-	owner.forgetPassword = function(email, callback) {
+	owner.forgetPassword = function(phone, callback) {
 		callback = callback || $.noop;
-		if (!checkEmail(email)) {
-			return callback('邮箱地址不合法');
-		}
-		return callback(null, '新的随机密码已经发送到您的邮箱，请查收邮件。');
+//		if (!checkEmail(email)) {
+//			return callback('邮箱地址不合法');
+//		}
+		return callback(null, '新的随机密码已经发送到您的手机，请查收邮件。');
 	};
 
 	/**
@@ -124,7 +125,6 @@
 			var packageName = {
 				"qq": "com.tencent.mobileqq",
 				"weixin": "com.tencent.mm",
-				"sinaweibo": "com.sina.weibo"
 			}
 			try {
 				return packageManager.getPackageInfo(packageName[id], PackageManager.GET_ACTIVITIES);
@@ -137,9 +137,6 @@
 				case "weixin":
 					var WXApi = plus.ios.import("WXApi");
 					return WXApi.isWXAppInstalled()
-				case "sinaweibo":
-					var SinaAPI = plus.ios.import("WeiboSDK");
-					return SinaAPI.isWeiboAppInstalled()
 				default:
 					break;
 			}

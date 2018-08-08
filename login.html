@@ -136,7 +136,6 @@
 				</div>
 			</div>
 			<div class="mui-content-padded oauth-area">
-
 			</div>
 		</div>
 		<script src="js/mui.min.js"></script>
@@ -186,7 +185,7 @@
 					} else {
 						app.setState(null);
 						//第三方登录
-						var authBtns = ['qihoo', 'weixin', 'sinaweibo', 'qq']; //配置业务支持的第三方登录
+						var authBtns = ['weixin', 'qq']; //配置业务支持的第三方登录
 						var auths = {};
 						var oauthArea = doc.querySelector('.oauth-area');
 						plus.oauth.getServices(function(services) {
