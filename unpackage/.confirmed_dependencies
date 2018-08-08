@@ -1,0 +1,33 @@
+{
+  "index.html": {
+    "resources": [
+      "tab-webview-subpage-articlelist.html"
+    ],
+    "refer": [
+      "tab-webview-subpage-goodlist.html",
+      "tab-webview-subpage-movielist.html",
+      "tab-webview-subpage-articlelist.html",
+      "tab-webview-subpage-setting.html"
+    ]
+  },
+  "tab-webview-subpage-movielist.html": {
+    "refer": [
+      "moviedetail.html"
+    ],
+    "resources": []
+  },
+  "tab-webview-subpage-articlelist.html": {
+    "refer": [
+      "articledetail.html"
+    ],
+    "resources": []
+  },
+  "login.html": {
+    "refer": [
+      "index.html",
+      "reg.html",
+      "forget_password.html"
+    ],
+    "resources": []
+  }
+}
