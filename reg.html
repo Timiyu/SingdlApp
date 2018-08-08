@@ -238,50 +238,11 @@
 					mui.toast("验证码错误")
 				}
 			});
-			// localStorage.countdown="60";
-			(function($, doc) {
-				$.init();
-				$.plusReady(function() {
-					var settings = app.getSettings();
-					var regButton = doc.getElementById('reg');
-					var accountBox = doc.getElementById('account');
-					var passwordBox = doc.getElementById('password');
-					var passwordConfirmBox = doc.getElementById('password_confirm');
-					var phoneBox = doc.getElementById('phone');
-					regButton.addEventListener('tap', function(event) {
-						var regInfo = {
-							account: accountBox.value,
-							password: passwordBox.value,
-							phone: phoneBox.value
-						};
-						var passwordConfirm = passwordConfirmBox.value;
-						if(passwordConfirm != regInfo.password) {
-							plus.nativeUI.toast('密码两次输入不一致');
-							return;
-						}
-						app.reg(regInfo, function(err) {
-							if(err) {
-								plus.nativeUI.toast(err);
-								return;
-							}
-							plus.nativeUI.toast('注册成功');
-							$.openWindow({
-								url: 'login.html',
-								id: 'login',
-								show: {
-									aniShow: 'pop-in'
-								}
-							});
-						});
-					});
-				});
-			}(mui, document));
-			//
 
 			//加密解密函数
-
+			//aes加密
 			function encrypt(word) {
-				var key = CryptoJS.enc.Utf8.parse("429004198807184233"); //16位
+				var key = CryptoJS.enc.Utf8.parse("429004198807184233"); //18位
 				var iv = CryptoJS.enc.Utf8.parse("429004198807184233");
 				var encrypted = '';
 				if(typeof(word) == 'string') {
@@ -317,62 +278,6 @@
 				return decryptedStr.toString();
 			}
 
-			// mui.plusReady(function() {
-			// 	countdown = localStorage.countdown;
-			// 	if(countdown != "0") {
-			// 		$("#getCode").html("重新发送 ( " + countdown + " )");
-			// 		timedown();
-			// 	}
-			// });
-			//
-			// function timedown(obj) {
-			// 	countdown = localStorage.countdown;
-			// 	if(countdown == "0") {
-			// 		$("#getCode").html("获取验证码");
-			// 		return clearTimeout(); //清除定时，没有的话会导致后面每次减一越来越快
-			// 	} else {
-			// 		$("#getCode").html("重新发送 ( " + countdown + " )");
-			// 		countdown = parseInt(countdown) - 1;
-			// 		localStorage.countdown = countdown.toString();
-			// 	}
-			// 	setTimeout(function() {
-			// 		timedown(obj);
-			// 	}, 1000); //定时每秒减一
-			// }
-			// //手机验证,判断60s之后再发送验证码
-			// function settime(obj) {
-			// 	var phone = document.getElementById("phone");
-			// 	var password = document.getElementById("password");
-			// 	var password_confirm = document.getElementById("password_confirm");
-			// 	var check_phone_number = /^1[3458]\d{9}$/;
-			// 	if(phone.value.length == 0) {
-			// 		plus.ui.toast("手机号不能为空");
-			// 		return;
-			// 	}
-			// 	if(phone.value.length != 11) {
-			// 		plus.ui.toast("请输入有效的手机号！");
-			// 		return;
-			// 	}
-			// 	if(!phone.value.match(check_phone_number)) {
-			// 		plus.ui.toast("请输入有效的手机号");
-			// 		return;
-			// 	} else {
-			// 		//短信发送
-			// 		 mui.getJSON("https://ke.singdl.com/api/get_send_code/", { "phone": phone }, function(json){
-			// 		  if(json.status == "error")
-			// 		  {
-			// 		      mui.toast(json.msg);
-			// 		  }
-			// 		  else
-			// 		  {
-			// 		      localStorage.setItem("msncode",json.code)
-			// 		      mui.toast(json.msg);
-			// 		  }
-			// 		 });
-			// 		localStorage.countdown = "60";
-			// 		timedown(obj);
-			// 	}
-			// }
 		</script>
 	</body>
 
